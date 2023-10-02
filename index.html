@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //zad1
+            var imie  
+            imie = prompt ("Podaj swoje imie");
+            document.write ("Witaj " + imie)
+
+
+        //zad2
+        let liczba1 = parseFloat(prompt("Podaj pierwszą iczbę:"));
+
+        let liczba2 = parseFloat(prompt("Podaj drugą liczbę:"));
+
+        let operacja = parseInt(prompt("Wybierz operację:\n1 - dodawanie, 2  - odejmowanie, 3  - mnożenie, 4 - dzielenie")); 
+
+        let wynik
+
+        switch(operacja)
+        {
+            case 1:
+                wynik = liczba1 + liczba2;
+                break;
+            case 2:
+                wynik = liczba1 - liczba2;
+                break;
+            case 3:
+                wynik = liczba1 * liczba2;
+                break;
+            case 4:
+                wynik = liczba1 / liczba2;
+                break;
+            default:
+                alert("zle wybrales");
+        }
+        alert("Wynik: " + wynik);
+
+        //zad3
+
+        var wzrost = parseFloat(prompt("Podaj swoj wzrost w cm:"));
+
+        if (wzrost > 180) {
+            alert ("Jestes wysoki");
+        }
+        else if(wzrost > 165 ){
+            alert("Jestes sredniego wzrostu");
+        }
+        else{
+            alert("Jestes niski");
+        }
+
+        //zad4
+
+        var rokurodzenie = parseInt(prompt("Podaj rok urodzenia"));
+        var teraz = 2023;
+
+        var wiek = teraz - rokurodzenie;
+
+        alert("Twoj wiek:" + wiek + "lat");
+
+        //zad5
+
+        var rokurodzenia = parseInt(prompt("Podaj swoj rok narodzin:"));
+        var teraz = 2023
+        var wiek = teraz - rokurodzenia;
+
+        if (wiek >= 18){
+            alert("Jestes pelnoletni");
+        }
+        else{
+            alert("Jestes niepelnoletni");
+        }
+
+    
+       
+       
+    </script>
+</body>
+</html>
