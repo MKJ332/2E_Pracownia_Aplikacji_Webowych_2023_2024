@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var punkty = parseFloat(prompt("Podaj liczbe punktow:"));
+        var maxPunkty = parseFloat(prompt("Podaj maksymalna ilosc punktow do zdobycia:"));
+        var procentowyWynik = (punkty / maxPunkty) * 100;
+        var ocena = "";
+        if (procentowyWynik < 30) {
+ocena = "niedostateczny";
+} else if (procentowyWynik >= 30 && procentowyWynik < 49) {
+ocena = "dopuszczajacy";
+
+} else if (procentowyWynik >= 50 && procentowyWynik < 74) {
+ocena = "dostateczny";
+
+} else if (procentowyWynik >= 75 && procentowyWynik < 89) {
+ocena = "dobry";
+
+} else if (procentowyWynik >= 90 && procentowyWynik < 99) {
+ocena = "bardzo dobry";
+
+} else if (procentowyWynik === 100) {
+ocena = "celujacy";
+
+} else {
+ocena = "Nieprawidlowy wynik";
+}
+alert ("Twoj wynik to " + procentowyWynik + "%. Ocena: " + ocena);
+    </script>
+</body>
+</html>

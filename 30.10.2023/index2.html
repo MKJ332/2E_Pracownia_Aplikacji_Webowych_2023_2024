@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Przeliczenie = prompt("Wybierz jakie chcesz przeliczenie: \n1. z faranhaita na celcjusze \n2. z celcjusza na faranhait");
+    if (Przeliczenie === "1") {
+        var temperaturaCelcjusza = parseFloat(prompt("Podaj tempereture w celcjuszach"));
+        var temperaturaFhrenhaita = temperaturaCelcjusza * 9/5 + 32;
+        alert (temperaturaCelcjusza + "C to " + temperaturaFhrenhaita + "F");
+    }
+    else if (Przeliczenie === "2"){
+    var temperaturaFhrenhaita = parseFloat(prompt("Podaj temperature w fahrenhaitach:"));
+    var temperaturaCelcjusza = (temperaturaFhrenhaita - 32) * 5/9;
+    alert (temperaturaFhrenhaita + "F to " + temperaturaCelcjusza + "C ");
+    }else {
+        alert ("Nieprawidlowy wybor przeliczenia.");
+    }
+    </script>
+</body>
+</html>

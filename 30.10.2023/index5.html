@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var rodzajObliczenia = prompt ("Co chcesz obliczyc \n1. Cena netto na brutto\n2. Cena brutto na netto")
+        if (rodzajObliczenia === "1") {
+        var cenaNetto = parseFloat (prompt("Podaj cene netto:"));
+        var stawkaPodatku = parseFloat (prompt("Podaj stawke podatku (w procentach):"));
+        var cenaBrutto = cenaNetto + (cenaNetto * (stawkaPodatku / 100));
+        alert("Cena brutto wynosi: " + cenaBrutto + " zl");
+
+        } else if (rodzajObliczenia === "2") {
+        var cenaBrutto = parseFloat (prompt("Podaj cene brutto:"));
+        var stawkaPodatku = parseFloat (prompt("Podaj stawke podatku (w procentach):"));
+        var cenaNetto = cenaBrutto / (1 + (stawkaPodatku / 100));
+
+        alert ("Cena netto wynosi: " + cenaNetto + " zl");
+        } else {
+        alert ("Nieprawidlowy wybor rodzaju obliczenia.");
+        }
+    </script>
+</body>
+</html>
