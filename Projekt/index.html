@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komis Motocyklowy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo Komis Motocyklowy" class="logo">
+        <h1>Komis Motocyklowy</h1>
+        <p><strong>Twoje wymarzone motocykle czekają!</strong></p>
+    </header>
+
+    <nav>
+        <a href="#about">O nas</a>
+        <a href="#offers">Oferty Motocykli</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#services">Usługi</a>
+        <a href="#business">Informacje o działalności komisu</a>
+    </nav>
+
+    <div class="container">
+        <div class="filters">
+            <h2>Filtry wyszukiwania</h2>
+            <form>
+                <label for="brand">Marka:</label>
+                <select id="brand" name="brand">
+                    <option value="yamaha">Yamaha</option>
+                    <option value="honda">Honda</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="bmw">BMW</option>
+                </select>
+
+                <label for="type">Typ:</label>
+                <select id="type" name="type">
+                    <option value="sport">Sport</option>
+                    <option value="cruiser">Cruiser</option>
+                    <option value="touring">Touring</option>
+                    <option value="offroad">Offroad</option>
+                </select>
+
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" placeholder="Wpisz model">
+
+                <label for="year">Rok produkcji:</label>
+                <input type="number" id="year" name="year" placeholder="Rok produkcji">
+
+                <label for="engine">Pojemność silnika:</label>
+                <input type="text" id="engine" name="engine" placeholder="Pojemność silnika (cm³)">
+
+                <label for="price">Cena:</label>
+                <input type="number" id="price" name="price" placeholder="Cena">
+
+                <button type="submit">Szukaj</button>
+            </form>
+        </div>
+
+        <div id="offers" class="offers">
+            <h2>Oferty Motocykli</h2>
+            <div class="advertisement-list">
+               
+            </div>
+        </div>
+
+        <div id="about" class="about">
+            <h2>O nas</h2>
+            <p>Historia firmy: Jesteśmy pasjonatami motocykli z wieloletnim doświadczeniem. Nasz komis powstał w 2005 roku z pasji do motocykli. Od tego czasu oferujemy naszym klientom wysokiej jakości pojazdy.</p>
+            <h3>Informacje o zespole</h3>
+            <p>Nasz zespół składa się z ekspertów, którzy pomogą Ci w doborze najlepszego motocykla. Oferujemy również pełne wsparcie serwisowe i doradztwo.</p>
+        </div>
+
+        <div id="contact" class="contact">
+            <h2>Kontakt</h2>
+            <p><strong>Numer telefonu:</strong> +48 123 456 789</p>
+            <p><strong>Adres email:</strong> kontakt@komismotocyklowy.pl</p>
+            <p><strong>Adres firmy:</strong> ul. Motocyklowa 1, 00-001 Warszawa</p>
+        </div>
+    </div>
+
+    <!-- Sekcja szczegółów motocykla -->
+    <div id="motorcycle-details" class="motorcycle-details">
+        <h2>Szczegóły Motocykla</h2>
+        <div id="motorcycle-info">
+            <!-- Dynamicznie generowane szczegóły motocykla -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const offers = [
+                {
+                    brand: 'Yamaha',
+                    model: 'YZF-R1',
+                    year: 2020,
+                    type: 'Sport',
+                    price: 45000,
+                    image: 'motorcycle1.jpg',
+                    details: 'To motocykl Yamaha YZF-R1, model 2020, o mocy 200 KM i nowoczesnej technologii.'
+                },
+                {
+                    brand: 'Honda',
+                    model: 'CBR1000RR',
+                    year: 2019,
+                    type: 'Sport',
+                    price: 42000,
+                    image: 'motorcycle2.jpg',
+                    details: 'Honda CBR1000RR to motocykl o dużej dynamice, idealny do sportowej jazdy.'
+                },
+                {
+                    brand: 'Suzuki',
+                    model: 'GSX-R1000',
+                    year: 2018,
+                    type: 'Sport',
+                    price: 40000,
+                    image: 'motorcycle3.jpg',
+                    details: 'Suzuki GSX-R1000 oferuje wyjątkową wydajność w kategorii motocykli sportowych.'
+                },
+                {
+                    brand: 'BMW',
+                    model: 'S1000RR',
+                    year: 2021,
+                    type: 'Sport',
+                    price: 50000,
+                    image: 'motorcycle4.jpg',
+                    details: 'BMW S1000RR to motocykl klasy premium, łączący moc i nowoczesne technologie.'
+                }
+            ];
+
+            const advertisementList = document.querySelector('.advertisement-list');
+            const motorcycleDetails = document.getElementById('motorcycle-info');
+
+            offers.forEach((offer, index) => {
+                const advertisement = document.createElement('div');
+                advertisement.classList.add('advertisement');
+
+                advertisement.innerHTML = `
+                    <img src="${offer.image}" alt="Motocykl ${offer.brand}" class="motorcycle-image">
+                    <div class="advertisement-details">
+                        <h3>${offer.brand} ${offer.model}</h3>
+                        <p>Rok produkcji: ${offer.year}</p>
+                        <p>Typ: ${offer.type}</p>
+                        <p>Cena: ${offer.price} PLN</p>
+                        <a href="#" onclick="showDetails(${index})">Więcej informacji</a>
+                    </div>
+                `;
+
+                advertisementList.appendChild(advertisement);
+            });
+
+          
+            window.showDetails = function(index) {
+                const offer = offers[index];
+                motorcycleDetails.innerHTML = `
+                    <h3>${offer.brand} ${offer.model}</h3>
+                    <img src="${offer.image}" alt="Motocykl ${offer.brand}" class="motorcycle-image">
+                    <p><strong>Rok produkcji:</strong> ${offer.year}</p>
+                    <p><strong>Typ:</strong> ${offer.type}</p>
+                    <p><strong>Cena:</strong> ${offer.price} PLN</p>
+                    <p><strong>Szczegóły:</strong> ${offer.details}</p>
+                `;
+                window.location.hash = '#motorcycle-details';  
+            }
+        });
+    </script>
+</body>
+</html>
